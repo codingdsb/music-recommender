@@ -27,9 +27,14 @@ def index():
             'message': 'Cannot detect this gender'
         })
 
-    if data['age'] < 2:
+    if data['age'] < 2 and data['age'] >= 0:
         return jsonify({
             'message': 'Do you even listen to songs'
+        })
+    
+    if data['age'] < 0:
+        return jsonify({
+            'message': 'You are not born yet'
         })
 
     # load the model
